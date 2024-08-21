@@ -17,15 +17,13 @@ Có những kiểu dưới đây:
 ### Việc copy biến với tham trị
 
 ```js
-let message = 'Hello!'
-let phrase = message
+let message = "Hello!";
+let phrase = message;
 ```
 
 Chúng ta có 2 biến độc lập, **mỗi biến đều chứa giá trị là `"Hello"`**
 
 ![](./variable-copy-value.svg)
-
-Quá dễ hiểu!
 
 ## Kiểu tham chiếu (reference types)
 
@@ -45,8 +43,8 @@ Object thì không giống như các kiểu dữ liệu của tham trị.
 
 ```js
 let user = {
-  name: 'John'
-}
+  name: "John",
+};
 ```
 
 ![](./variable-contains-reference.svg)
@@ -56,9 +54,9 @@ Object thì được lưu trữ đâu đó trong bộ nhớ (bên phải hình),
 **Khi chúng ta copy một biến object, tham chiếu của nó sẽ bị copy, object không bị nhân đôi lên**
 
 ```js
-let user = { name: 'John' }
+let user = { name: "John" };
 
-let admin = user // copy the reference
+let admin = user; // copy the reference
 ```
 
 Bây giờ chúng ta có 2 biến đều tham chiếu đến cùng một object
@@ -68,13 +66,13 @@ Bây giờ chúng ta có 2 biến đều tham chiếu đến cùng một object
 Chúng ta có thể sử dụng biến để truy cập đến object và chỉnh sửa chúng
 
 ```js
-let user = { name: 'John' }
+let user = { name: "John" };
 
-let admin = user
+let admin = user;
 
-admin.name = 'Pete' // changed by the "admin" reference
+admin.name = "Pete"; // changed by the "admin" reference
 
-console.log(user.name) // 'Pete', changes are seen from the "user" reference
+console.log(user.name); // 'Pete', changes are seen from the "user" reference
 ```
 
 ### So sánh với tham chiếu
@@ -84,21 +82,21 @@ console.log(user.name) // 'Pete', changes are seen from the "user" reference
 Ví dụ `a` và `b` cùng tham chiếu đến một object nên nó bằng nhau
 
 ```js
-let a = {}
-let b = a // copy the reference
+let a = {};
+let b = a; // copy the reference
 
-console.log(a == b) // true, both variables reference the same object
-console.log(a === b) // true
+console.log(a == b); // true, both variables reference the same object
+console.log(a === b); // true
 ```
 
 Và dưới đây là 2 object độc lập, dù cho chúng nhìn có vẻ giống nhau thì chúng cũng không bằng nhau
 
 ```js
-let a = {}
-let b = {}
+let a = {};
+let b = {};
 
-console.log(a == b) // false
-console.log(a === b) // false
+console.log(a == b); // false
+console.log(a === b); // false
 ```
 
 ### Clone và merge
@@ -116,32 +114,32 @@ Với clone thường thì người ta thường dùng **spread syntax** để c
 
 ```js
 let user = {
-  name: 'John',
-  age: 30
-}
+  name: "John",
+  age: 30,
+};
 
 // Bây giờ clone là một object độc lập với cùng nội dung với user
-let clone = { ...user }
-clone.name = 'Peter'
-console.log(user.name) // Vẫn là John trong object gốc
+let clone = { ...user };
+clone.name = "Peter";
+console.log(user.name); // Vẫn là John trong object gốc
 ```
 
 Hoặc sài vòng lặp
 
 ```js
 let user = {
-  name: 'John',
-  age: 30
-}
+  name: "John",
+  age: 30,
+};
 
-let clone = {} // một object rỗng
+let clone = {}; // một object rỗng
 
 // Cùng copy các thuộc tính nào
 for (let key in user) {
-  clone[key] = user[key]
+  clone[key] = user[key];
 }
-clone.name = 'Pete'
-console.log(user.name) // Vẫn là John trong object gốc
+clone.name = "Pete";
+console.log(user.name); // Vẫn là John trong object gốc
 ```
 
 Clone thường chỉ hiệu quả với những object 1 cấp, những object nested nhiều cấp thì phải deep clone
@@ -154,34 +152,34 @@ Như thế này:
 
 ```js
 let user = {
-  name: 'John',
+  name: "John",
   sizes: {
     height: 182,
-    width: 50
-  }
-}
+    width: 50,
+  },
+};
 
-console.log(user.sizes.height) // 182
+console.log(user.sizes.height); // 182
 ```
 
 Bây giờ clone với cách thông thường không thể copy nổi `user.sizes` bởi vì nó là một object, nếu copy thì nó sẽ bị tham chiếu và `clone.sizes` và `user.sizes` sẽ cùng tham chiếu đến một địa chỉ ô nhớ (một object)
 
 ```js
 let user = {
-  name: 'John',
+  name: "John",
   sizes: {
     height: 182,
-    width: 50
-  }
-}
+    width: 50,
+  },
+};
 
-let clone = { ...user }
+let clone = { ...user };
 
-console.log(user.sizes === clone.sizes) // true, Vì cùng object
+console.log(user.sizes === clone.sizes); // true, Vì cùng object
 
 // user và clone chia sẻ sizes
-user.sizes.width++ // Thay đổi thuộc tính từ một nơi
-console.log(clone.sizes.width) // 51, Tại nơi khác kết quả cũng bị thay đổi theo
+user.sizes.width++; // Thay đổi thuộc tính từ một nơi
+console.log(clone.sizes.width); // 51, Tại nơi khác kết quả cũng bị thay đổi theo
 ```
 
 Để fix vấn đề này thì chúng ta có thể dùng một số phương pháp dưới đây
@@ -196,12 +194,12 @@ Giá trị của user là không thay đổi, nhưng object bên trong nó thì 
 
 ```js
 const user = {
-  name: 'John'
-}
+  name: "John",
+};
 
-user.name = 'Pete' // (*)
+user.name = "Pete"; // (*)
 
-console.log(user.name) // Pete
+console.log(user.name); // Pete
 ```
 
 Nó chỉ lỗi khi chúng ta set `user=...` thôi.

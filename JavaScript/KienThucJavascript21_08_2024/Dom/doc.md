@@ -56,3 +56,4 @@ Phương thức `stopPropagation()` trong JavaScript được sử dụng để 
 ## Cú pháp
 ```javascript
 event.stopPropagation();
+```

@@ -2,6 +2,8 @@
 
 ## Promise
 
+Promise trong JavaScript là một đối tượng đại diện cho một giá trị có thể sẽ có trong tương lai. Nó cho phép bạn xử lý các tác vụ bất đồng bộ (asynchronous) một cách dễ dàng và rõ ràng hơn, thay vì sử dụng các callback truyền thống.
+
 ```js
 // async callback thông thường
 setTimeout(() => {
@@ -30,7 +32,8 @@ p()
 console.log('Chạy trước tiên')
 ```
 
-## Async / Await
+## Async / 
+Giúp viết mã bất đồng bộ giống mã đồng bộ
 
 - await chỉ sử dụng được trong một async function
 - Chỉ sử dụng await với promise
