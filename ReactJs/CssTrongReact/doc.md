@@ -21,11 +21,12 @@ Dùng trong trường hợp chỉ css nhẹ, css dựa vào điều kiện. Khô
 ## Atomic CSS
 
 Trường phái mới, dùng hay nhưng cần phải học thuộc tên class khá nhiều và cần thời gian làm quen.
+![alt text](image.png)
 
 ## Styled Component
 
 Scoped được CSS nhưng lại tạo ra một component mới, viết dài dòng, bù lại có thêm vài tính năng mới như truyền prop vào
 
 ## CSS module
-
+![alt text](image-1.png)
 Viết đỡ dài dòng mà cũng scoped được css, thân thiện với các bạn mới nhất.
